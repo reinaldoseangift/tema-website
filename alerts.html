@@ -1,0 +1,204 @@
+<!doctype html>
+<!-- Programmer: Reinaldo Gift, Date: 29/09/2026 -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Active Alerts — TEMA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: #0A0A0A; text-decoration: none; }
+a:hover { color: #E1001A; }
+.tema-nav-link { transition: color .15s ease; }
+.tema-nav-link:hover { color: #E1001A !important; }
+
+</style>
+</head>
+<body>
+<div style="width: 1440px; max-width: 100%; min-height: 2650px; background: #F7F7F7; font-family: 'Public Sans', system-ui, sans-serif; display: flex; flex-direction: column; margin: 0 auto;">
+
+  <div style="width: 100%; font-family: 'Public Sans', system-ui, sans-serif; background: #fff;">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 10px; padding: 9px 24px; background: #0A0A0A; color: #E0E0E0; font-size: 13px; font-weight: 500; letter-spacing: .01em;">
+    <span>Life-threatening emergency? Call <strong style="background: #E1001A; color: #fff; padding: 2px 8px; border-radius: 3px; font-weight: 700; margin: 0 2px;">211</strong> immediately</span>
+    <span style="opacity: .35;">&bull;</span>
+    <span>TEMA 24/7 Hotline: <strong style="font-weight: 700;">660-7489</strong></span>
+  </div>
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; border-bottom: 1px solid #E2E6EB;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 12px;">
+      <div style="width: 46px; height: 46px; border-radius: 9px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;">
+        <img src="pictures/TEMA%20LOGO.jpg" alt="TEMA logo" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+      <div style="display: flex; flex-direction: column; line-height: 1.15;">
+        <span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 21px; color: #0A0A0A; letter-spacing: .01em;">TEMA</span>
+        <span style="font-size: 11px; color: #5C6779; letter-spacing: .05em; text-transform: uppercase; font-weight: 600;">Tobago Emergency Management Agency</span>
+      </div>
+    </a>
+    <nav style="display: flex; align-items: center; gap: 36px;">
+      <a class="tema-nav-link" href="index.html" style="font-size: 15px; font-weight: 600; color: #4B5565; padding-bottom: 20px; border-bottom: 2px solid transparent;">Home</a>
+      <a class="tema-nav-link" href="alerts.html" style="font-size: 15px; font-weight: 700; color: #0A0A0A; padding-bottom: 20px; border-bottom: 2px solid #0A0A0A;">Alerts</a>
+      <a class="tema-nav-link" href="shelters.html" style="font-size: 15px; font-weight: 600; color: #4B5565; padding-bottom: 20px; border-bottom: 2px solid transparent;">Shelters & Routes</a>
+      <a class="tema-nav-link" href="report.html" style="font-size: 15px; font-weight: 600; color: #4B5565; padding-bottom: 20px; border-bottom: 2px solid transparent;">Report Incident</a>
+      <a class="tema-nav-link" href="contact.html" style="font-size: 15px; font-weight: 600; color: #4B5565; padding-bottom: 20px; border-bottom: 2px solid transparent;">Contact</a>
+    </nav>
+    <a href="report.html" style="display: flex; align-items: center; gap: 8px; background: #0A0A0A; color: #fff; border: none; padding: 11px 20px; border-radius: 7px; font-family: 'Public Sans', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="3"/></svg>
+      Report Incident
+    </a>
+  </div>
+</div>
+
+  <div style="padding: 48px 40px 8px; display: flex; flex-direction: column; gap: 8px;">
+    <h1 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 32px; color: #0A0A0A;">Active Alerts</h1>
+    <p style="margin: 0; font-size: 15px; color: #5C6779;">1 alert currently in effect across Trinidad &amp; Tobago, per the Trinidad and Tobago Meteorological Service and ODPM.</p>
+    <span style="font-size: 12px; color: #9AA5B1;">Sourced from metoffice.gov.tt/warnings and odpm.gov.tt &middot; Last checked Sep 29, 2026</span>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 10px; padding: 24px 40px; flex-wrap: wrap;">
+    <span style="font-size: 12.5px; font-weight: 700; letter-spacing: .04em; color: #fff; background: #0A0A0A; padding: 8px 16px; border-radius: 20px;">All (1)</span>
+    <span style="font-size: 12.5px; font-weight: 600; color: #4B5565; background: #fff; border: 1px solid #E2E6EB; padding: 8px 16px; border-radius: 20px;">Warnings (0)</span>
+    <span style="font-size: 12.5px; font-weight: 600; color: #4B5565; background: #fff; border: 1px solid #E2E6EB; padding: 8px 16px; border-radius: 20px;">Watches (0)</span>
+    <span style="font-size: 12.5px; font-weight: 600; color: #4B5565; background: #fff; border: 1px solid #E2E6EB; padding: 8px 16px; border-radius: 20px;">Advisories (1)</span>
+    <div style="flex-grow: 1;"></div>
+    <div style="display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #E2E6EB; padding: 8px 14px; border-radius: 20px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4B5565" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span style="font-size: 12.5px; font-weight: 600; color: #4B5565;">All Regions</span>
+    </div>
+  </div>
+
+  <div style="padding: 0 40px 72px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1;">
+
+    <div style="background: #fff; border: 1px solid #E2E6EB; border-left: 5px solid #6B6B6B; border-radius: 10px; padding: 22px 26px; display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 11.5px; font-weight: 700; letter-spacing: .04em; color: #6B6B6B; background: #F5F5F5; padding: 5px 10px; border-radius: 5px;">ADVISORY</span>
+        <span style="font-size: 12.5px; font-weight: 600; color: #5C6779;">Trinidad &amp; Tobago</span>
+        <div style="flex-grow: 1;"></div>
+        <span style="font-size: 12.5px; color: #7E8A9A;">Issued Thu, Sep 24 2:00 PM &middot; Expires Sat, Oct 31 4:00 PM</span>
+      </div>
+      <span style="font-family: 'Archivo', sans-serif; font-size: 18px; font-weight: 700; color: #0A0A0A;">Hot Spell Alert #1 (Yellow Level)</span>
+      <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #4B5565; max-width: 860px;">A hot spell is in effect &mdash; maximum daytime temperatures are expected to meet or exceed 33.0&deg;C in Tobago for five or more consecutive days, with feels-like values reaching 34&ndash;44&deg;C depending on location. Limit strenuous outdoor activity during peak afternoon heat, stay hydrated, and check on elderly or vulnerable neighbors.</p>
+      <a href="https://www.metoffice.gov.tt/warnings" style="font-size: 13.5px; font-weight: 700; margin-top: 4px;">View full details &rarr;</a>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #E2E6EB; border-radius: 10px; padding: 20px 26px; display: flex; align-items: center; gap: 14px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F9E5B" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M20 6L9 17l-5-5"/></svg>
+      <span style="font-size: 13.5px; color: #4B5565;">No flood, wind, storm, wildfire, or air quality warnings are currently in effect for Tobago. ODPM is at Green Level (no alerts). This page reflects official bulletins from the Trinidad and Tobago Meteorological Service (metoffice.gov.tt/warnings) and ODPM (odpm.gov.tt).</span>
+    </div>
+
+  </div>
+
+  <!-- Hurricane preparedness -->
+  <div style="padding: 8px 40px 72px; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 26px; color: #0A0A0A;">Hurricane Season &amp; Preparedness</h2>
+      <p style="margin: 0; font-size: 14.5px; color: #5C6779; max-width: 760px; line-height: 1.6;">Hurricane season in Trinidad and Tobago runs from June 1st to November 30th each year. Being prepared before a storm hits is the best way to stay safe and reduce risk.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;">
+      <div style="background: #fff; border: 1px solid #E2E6EB; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 15px; color: #0A0A0A;">&#9656; Before a Storm</span>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; line-height: 1.5; color: #4B5565;">
+          <li>Create an emergency plan for your household</li>
+          <li>Prepare an emergency supply kit</li>
+          <li>Secure important documents in waterproof containers</li>
+          <li>Clear drains and secure loose outdoor items</li>
+        </ul>
+      </div>
+      <div style="background: #fff; border: 1px solid #E2E6EB; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 15px; color: #0A0A0A;">During a Storm</span>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; line-height: 1.5; color: #4B5565;">
+          <li>Stay indoors and away from windows</li>
+          <li>Listen to official updates from TEMA or ODPM</li>
+          <li>Use flashlights instead of candles</li>
+          <li>Avoid flooded areas and coastlines</li>
+        </ul>
+      </div>
+      <div style="background: #fff; border: 1px solid #E2E6EB; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 15px; color: #0A0A0A;">&#9656; After a Storm</span>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; line-height: 1.5; color: #4B5565;">
+          <li>Check for damage safely</li>
+          <li>Avoid downed power lines</li>
+          <li>Boil water if contamination is suspected</li>
+          <li>Follow official all-clear announcements before going out</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background: #fff; border: 1px solid #E2E6EB; border-radius: 12px; padding: 26px; margin-top: 4px;">
+      <span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 15px; color: #0A0A0A; display: block; margin-bottom: 14px;">&#9656; Emergency Supply Kit Checklist</span>
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px 24px;">
+        <span style="font-size: 13.5px; color: #4B5565; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Water (3&ndash;5 days' supply)</span>
+        <span style="font-size: 13.5px; color: #4B5565; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Non-perishable food</span>
+        <span style="font-size: 13.5px; color: #4B5565; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Battery-powered radio</span>
+        <span style="font-size: 13.5px; color: #4B5565; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>First-aid kit</span>
+        <span style="font-size: 13.5px; color: #4B5565; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Medications</span>
+        <span style="font-size: 13.5px; color: #4B5565; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Flashlights and extra batteries</span>
+        <span style="font-size: 13.5px; color: #4B5565; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Important documents</span>
+        <span style="font-size: 13.5px; color: #4B5565; display: flex; align-items: center; gap: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Power banks and charging cables</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="width: 100%; font-family: 'Public Sans', system-ui, sans-serif; background: #0A0A0A; color: #D4D4D4;">
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; padding: 56px 40px 40px;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 34px; height: 34px; border-radius: 8px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+          <img src="pictures/TEMA%20LOGO.jpg" alt="TEMA logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <span style="font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 18px; color: #fff;">TEMA</span>
+      </div>
+      <p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: #A8A8A8; max-width: 260px;">The Tobago Emergency Management Agency coordinates disaster preparedness, response, and recovery across the island, 24 hours a day.</p>
+      <p style="margin: 4px 0 0; font-size: 12.5px; line-height: 1.6; color: #8A8A8A; max-width: 260px;">Fairfield Complex, Bacolet Street, Scarborough, Tobago</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8A8A8A; margin-bottom: 4px;">Quick Links</span>
+      <a href="index.html" style="font-size: 14px;">Home</a>
+      <a href="alerts.html" style="font-size: 14px;">Active Alerts</a>
+      <a href="shelters.html" style="font-size: 14px;">Shelters &amp; Routes</a>
+      <a href="report.html" style="font-size: 14px;">Report an Incident</a>
+      <a href="contact.html" style="font-size: 14px;">Contact</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8A8A8A; margin-bottom: 4px;">Resources</span>
+      <a href="#" style="font-size: 14px;">Preparedness Guides</a>
+      <a href="#" style="font-size: 14px;">Public Records</a>
+      <a href="#" style="font-size: 14px;">Alert Sign-Up (SMS/Email)</a>
+      <a href="#" style="font-size: 14px;">Press &amp; Media</a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #FF5C5C;">24/7 Emergency Hotline</span>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span style="font-family: 'Archivo', sans-serif; font-size: 19px; font-weight: 800; color: #fff;">660-7489</span>
+      </div>
+      <span style="font-size: 12px; color: #8A8A8A;">Life-threatening emergency? Call 211.</span>
+      <div style="display: flex; gap: 10px; margin-top: 6px;">
+        <a href="#" title="Facebook: TEMAEOC" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" title="Instagram: @TEMAEOC" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#D4D4D4" stroke="none"/></svg>
+        </a>
+        <a href="#" title="TikTok: TEMA_CERT" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 4"/></svg>
+        </a>
+        <a href="#" title="WhatsApp Channel" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1121 11.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; border-top: 1px solid #2B2B2B; font-size: 12.5px; color: #8A8A8A;">
+    <span>&copy; 2026 Tobago Emergency Management Agency. All rights reserved. &middot; temaeoc@gmail.com</span>
+    <div style="display: flex; gap: 24px;">
+      <a href="#" style="font-size: 12.5px;">Privacy Policy</a>
+      <a href="#" style="font-size: 12.5px;">Accessibility</a>
+      <a href="#" style="font-size: 12.5px;">Site Map</a>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
