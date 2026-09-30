@@ -21,7 +21,7 @@ input::placeholder, textarea::placeholder { color: #9AA6B5; }
 .tema-urgency-option.selected .tema-urgency-check { display: block; }
 .tema-incident-chip { font-size: 13px; font-weight: 600; color: #4B5565; background: #F2F4F7; border: 1px solid #E2E6EB; padding: 9px 16px; border-radius: 20px; cursor: pointer; user-select: none; }
 .tema-incident-chip.selected { font-weight: 700; color: #fff; background: #0A0A0A; border-color: #0A0A0A; }
-#tema-locate-btn:disabled { opacity: .6; cursor: default; }
+#tema-locate-btn:disabled, #tema-submit-btn:disabled { opacity: .6; cursor: default; }
 #tema-dropzone { transition: border-color .15s ease, background .15s ease; cursor: pointer; }
 </style>
 </head>
@@ -125,7 +125,7 @@ input::placeholder, textarea::placeholder { color: #9AA6B5; }
       <!-- Description -->
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <label style="font-size: 13px; font-weight: 700; color: #0A0A0A;">Description</label>
-        <textarea placeholder="Describe what you're seeing &mdash; what's happening, how many people or structures are affected, and anything responders should know." rows="4" style="border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A; resize: none;"></textarea>
+        <textarea id="tema-description-input" placeholder="Describe what you're seeing &mdash; what's happening, how many people or structures are affected, and anything responders should know." rows="4" style="border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A; resize: none;"></textarea>
       </div>
 
       <!-- Photo upload -->
@@ -147,15 +147,18 @@ input::placeholder, textarea::placeholder { color: #9AA6B5; }
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <label style="font-size: 13px; font-weight: 700; color: #0A0A0A;">Your contact information</label>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-          <input type="text" placeholder="Full name" style="border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A;">
-          <input type="text" placeholder="Phone number" style="border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A;">
+          <input type="text" id="tema-contact-name" placeholder="Full name" style="border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A;">
+          <input type="text" id="tema-contact-phone" placeholder="Phone number" style="border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A;">
         </div>
         <input type="text" placeholder="Email address (optional)" style="border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A;">
       </div>
 
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 6px; border-top: 1px solid #EDF0F3;">
-        <span style="font-size: 12.5px; color: #7E8A9A; max-width: 360px;">You'll receive a confirmation and reference number after submitting.</span>
-        <button type="button" style="background: #0A0A0A; color: #fff; border: none; padding: 14px 30px; border-radius: 8px; font-family: 'Public Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap;">Submit Report</button>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 6px; border-top: 1px solid #EDF0F3;">
+          <span style="font-size: 12.5px; color: #7E8A9A; max-width: 360px;">You'll receive a confirmation and reference number after submitting.</span>
+          <button type="button" id="tema-submit-btn" style="background: #0A0A0A; color: #fff; border: none; padding: 14px 30px; border-radius: 8px; font-family: 'Public Sans', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; white-space: nowrap;">Submit Report</button>
+        </div>
+        <span id="tema-submit-status" style="font-size: 13px; display: none;"></span>
       </div>
 
     </div>
@@ -196,13 +199,13 @@ input::placeholder, textarea::placeholder { color: #9AA6B5; }
       </div>
       <span style="font-size: 12px; color: #8A8A8A;">Life-threatening emergency? Call <a href="tel:211" style="color: inherit; text-decoration: underline;">211</a>.</span>
       <div style="display: flex; gap: 10px; margin-top: 6px;">
-        <a href="#" title="Facebook: TEMAEOC" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
+        <a href="https://www.facebook.com/TEMAEOC/" target="_blank" rel="noopener" title="Facebook: TEMAEOC" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         </a>
-        <a href="#" title="Instagram: @TEMAEOC" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
+        <a href="https://www.instagram.com/temaeoc/" target="_blank" rel="noopener" title="Instagram: @TEMAEOC" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#D4D4D4" stroke="none"/></svg>
         </a>
-        <a href="#" title="TikTok: TEMA_CERT" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
+        <a href="https://www.tiktok.com/@tema_cert" target="_blank" rel="noopener" title="TikTok: TEMA_CERT" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4D4D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 4"/></svg>
         </a>
         <a href="#" title="WhatsApp Channel" style="width: 34px; height: 34px; border-radius: 50%; border: 1px solid #2B2B2B; display: flex; align-items: center; justify-content: center;">
@@ -374,6 +377,48 @@ input::placeholder, textarea::placeholder { color: #9AA6B5; }
     fileInput.addEventListener('change', function () {
       addFiles(fileInput.files);
       fileInput.value = '';
+    });
+  }
+
+  // Submit report (no backend yet -- validates and shows a local confirmation)
+  var submitBtn = document.getElementById('tema-submit-btn');
+  var submitStatus = document.getElementById('tema-submit-status');
+  var descriptionInput = document.getElementById('tema-description-input');
+  var nameInput = document.getElementById('tema-contact-name');
+  var phoneInput = document.getElementById('tema-contact-phone');
+
+  function showSubmitStatus(msg, isError) {
+    if (!submitStatus) return;
+    submitStatus.textContent = msg;
+    submitStatus.style.display = msg ? 'block' : 'none';
+    submitStatus.style.color = isError ? '#E1001A' : '#1F7A3F';
+  }
+
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function () {
+      var hasLocation = locationInput && locationInput.value.trim().length > 0;
+      var hasDescription = descriptionInput && descriptionInput.value.trim().length > 0;
+      var hasName = nameInput && nameInput.value.trim().length > 0;
+      var hasPhone = phoneInput && phoneInput.value.trim().length > 0;
+
+      if (!(hasLocation || hasDescription)) {
+        showSubmitStatus("Please add a location or describe what you're seeing before submitting.", true);
+        return;
+      }
+      if (!(hasName || hasPhone)) {
+        showSubmitStatus('Please add your name or phone number so a responder can follow up.', true);
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+      showSubmitStatus('', false);
+
+      setTimeout(function () {
+        var ref = 'TEMA-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+        submitBtn.textContent = 'Submitted ✓';
+        showSubmitStatus('Report received. Reference number: ' + ref + '. Keep this for follow-up.', false);
+      }, 700);
     });
   }
 })();
