@@ -15,6 +15,14 @@ a:hover { color: #E1001A; }
 .tema-nav-link:hover { color: #E1001A !important; }
 input, textarea { font-family: 'Public Sans', sans-serif; }
 input::placeholder, textarea::placeholder { color: #9AA6B5; }
+.tema-urgency-option { border: 1.5px solid #E2E6EB; background: #fff; cursor: pointer; }
+.tema-urgency-option.selected { border: 2px solid #0A0A0A; background: #F0F0F0; }
+.tema-urgency-option .tema-urgency-check { display: none; }
+.tema-urgency-option.selected .tema-urgency-check { display: block; }
+.tema-incident-chip { font-size: 13px; font-weight: 600; color: #4B5565; background: #F2F4F7; border: 1px solid #E2E6EB; padding: 9px 16px; border-radius: 20px; cursor: pointer; user-select: none; }
+.tema-incident-chip.selected { font-weight: 700; color: #fff; background: #0A0A0A; border-color: #0A0A0A; }
+#tema-locate-btn:disabled { opacity: .6; cursor: default; }
+#tema-dropzone { transition: border-color .15s ease, background .15s ease; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -73,41 +81,45 @@ input::placeholder, textarea::placeholder { color: #9AA6B5; }
       <div style="display: flex; flex-direction: column; gap: 10px;">
         <span style="font-size: 13px; font-weight: 700; color: #0A0A0A;">How urgent is this?</span>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-          <div style="border: 1.5px solid #E2E6EB; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px;">
+          <div class="tema-urgency-option" data-urgency="urgent" style="border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px; position: relative;">
+            <svg class="tema-urgency-check" width="18" height="18" viewBox="0 0 24 24" fill="#0A0A0A" style="position: absolute; top: 14px; right: 14px;"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Urgent</span>
             <span style="font-size: 12.5px; color: #5C6779;">Needs response within hours &mdash; active hazard or danger</span>
           </div>
-          <div style="border: 2px solid #0A0A0A; background: #F0F0F0; border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px; position: relative;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A0A0A" style="position: absolute; top: 14px; right: 14px;"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="tema-urgency-option selected" data-urgency="non-urgent" style="border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 4px; position: relative;">
+            <svg class="tema-urgency-check" width="18" height="18" viewBox="0 0 24 24" fill="#0A0A0A" style="position: absolute; top: 14px; right: 14px;"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Non-urgent</span>
             <span style="font-size: 12.5px; color: #4B5565;">General report &mdash; no immediate danger present</span>
           </div>
         </div>
+        <input type="hidden" id="tema-urgency-value" value="non-urgent">
       </div>
 
       <!-- Incident type -->
       <div style="display: flex; flex-direction: column; gap: 10px;">
         <span style="font-size: 13px; font-weight: 700; color: #0A0A0A;">Incident type</span>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-          <span style="font-size: 13px; font-weight: 600; color: #4B5565; background: #F2F4F7; border: 1px solid #E2E6EB; padding: 9px 16px; border-radius: 20px;">Fire</span>
-          <span style="font-size: 13px; font-weight: 700; color: #fff; background: #0A0A0A; padding: 9px 16px; border-radius: 20px;">Flooding</span>
-          <span style="font-size: 13px; font-weight: 600; color: #4B5565; background: #F2F4F7; border: 1px solid #E2E6EB; padding: 9px 16px; border-radius: 20px;">Structural Damage</span>
-          <span style="font-size: 13px; font-weight: 600; color: #4B5565; background: #F2F4F7; border: 1px solid #E2E6EB; padding: 9px 16px; border-radius: 20px;">Downed Power Line</span>
-          <span style="font-size: 13px; font-weight: 600; color: #4B5565; background: #F2F4F7; border: 1px solid #E2E6EB; padding: 9px 16px; border-radius: 20px;">Hazardous Material</span>
-          <span style="font-size: 13px; font-weight: 600; color: #4B5565; background: #F2F4F7; border: 1px solid #E2E6EB; padding: 9px 16px; border-radius: 20px;">Other</span>
+          <span class="tema-incident-chip" data-incident="Fire">Fire</span>
+          <span class="tema-incident-chip selected" data-incident="Flooding">Flooding</span>
+          <span class="tema-incident-chip" data-incident="Structural Damage">Structural Damage</span>
+          <span class="tema-incident-chip" data-incident="Downed Power Line">Downed Power Line</span>
+          <span class="tema-incident-chip" data-incident="Hazardous Material">Hazardous Material</span>
+          <span class="tema-incident-chip" data-incident="Other">Other</span>
         </div>
+        <input type="hidden" id="tema-incident-value" value="Flooding">
       </div>
 
       <!-- Location -->
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <label style="font-size: 13px; font-weight: 700; color: #0A0A0A;">Location</label>
         <div style="display: flex; gap: 10px;">
-          <input type="text" placeholder="Street address or nearest cross streets" style="flex-grow: 1; border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A;">
-          <button type="button" style="display: flex; align-items: center; gap: 8px; background: #fff; color: #0A0A0A; border: 1.5px solid #E2E6EB; padding: 0 16px; border-radius: 8px; font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer;">
+          <input type="text" id="tema-location-input" placeholder="Street address or nearest cross streets" style="flex-grow: 1; border: 1.5px solid #E2E6EB; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #0A0A0A;">
+          <button type="button" id="tema-locate-btn" style="display: flex; align-items: center; gap: 8px; background: #fff; color: #0A0A0A; border: 1.5px solid #E2E6EB; padding: 0 16px; border-radius: 8px; font-size: 13.5px; font-weight: 700; white-space: nowrap; cursor: pointer;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Use current location
+            <span id="tema-locate-btn-label">Use current location</span>
           </button>
         </div>
+        <span id="tema-locate-status" style="font-size: 12px; display: none;"></span>
       </div>
 
       <!-- Description -->
@@ -119,17 +131,16 @@ input::placeholder, textarea::placeholder { color: #9AA6B5; }
       <!-- Photo upload -->
       <div style="display: flex; flex-direction: column; gap: 8px;">
         <label style="font-size: 13px; font-weight: 700; color: #0A0A0A;">Photos <span style="font-weight: 400; color: #7E8A9A;">(optional, helps responders)</span></label>
-        <div style="border: 1.5px dashed #C9C9C9; border-radius: 10px; padding: 22px; display: flex; align-items: center; gap: 18px;">
+        <div id="tema-dropzone" style="border: 1.5px dashed #C9C9C9; border-radius: 10px; padding: 22px; display: flex; align-items: center; gap: 18px;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7E8A9A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 16a4 4 0 100-8 4 4 0 000 8z"/><path d="M3 8a2 2 0 012-2h2l2-2h6l2 2h2a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
           <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
-            <span style="font-size: 13.5px; font-weight: 600; color: #4B5565;">Drag photos here or click to upload</span>
+            <span id="tema-dropzone-label" style="font-size: 13.5px; font-weight: 600; color: #4B5565;">Drag photos here or click to upload</span>
             <span style="font-size: 12px; color: #9AA6B5;">JPG or PNG, up to 10MB each</span>
           </div>
-          <div style="display: flex; gap: 8px;">
-            <div style="width: 52px; height: 52px; border-radius: 8px; background: #EDF0F3; border: 1px solid #E2E6EB;"></div>
-            <div style="width: 52px; height: 52px; border-radius: 8px; background: #EDF0F3; border: 1px solid #E2E6EB;"></div>
-          </div>
+          <div id="tema-photo-thumbs" style="display: flex; gap: 8px;"></div>
         </div>
+        <input type="file" id="tema-photo-input" accept="image/jpeg,image/png" multiple style="display:none;">
+        <span id="tema-photo-status" style="font-size: 12px; color: #E1001A; display: none;"></span>
       </div>
 
       <!-- Contact info -->
@@ -210,5 +221,162 @@ input::placeholder, textarea::placeholder { color: #9AA6B5; }
   </div>
 </div>
 </div>
+<script>
+(function () {
+  // Urgency toggle (single select)
+  var urgencyOptions = document.querySelectorAll('.tema-urgency-option');
+  var urgencyValue = document.getElementById('tema-urgency-value');
+  urgencyOptions.forEach(function (el) {
+    el.addEventListener('click', function () {
+      urgencyOptions.forEach(function (o) { o.classList.remove('selected'); });
+      el.classList.add('selected');
+      if (urgencyValue) urgencyValue.value = el.getAttribute('data-urgency');
+    });
+  });
+
+  // Incident type toggle (single select)
+  var chips = document.querySelectorAll('.tema-incident-chip');
+  var incidentValue = document.getElementById('tema-incident-value');
+  chips.forEach(function (el) {
+    el.addEventListener('click', function () {
+      chips.forEach(function (c) { c.classList.remove('selected'); });
+      el.classList.add('selected');
+      if (incidentValue) incidentValue.value = el.getAttribute('data-incident');
+    });
+  });
+
+  // GPS location
+  var locateBtn = document.getElementById('tema-locate-btn');
+  var locateLabel = document.getElementById('tema-locate-btn-label');
+  var locationInput = document.getElementById('tema-location-input');
+  var locateStatus = document.getElementById('tema-locate-status');
+
+  function showLocateStatus(msg, isError) {
+    if (!locateStatus) return;
+    locateStatus.textContent = msg;
+    locateStatus.style.display = msg ? 'block' : 'none';
+    locateStatus.style.color = isError ? '#E1001A' : '#5C6779';
+  }
+
+  if (locateBtn) {
+    locateBtn.addEventListener('click', function () {
+      if (!navigator.geolocation) {
+        showLocateStatus('Geolocation is not supported by this browser. Enter your address manually.', true);
+        return;
+      }
+      locateLabel.textContent = 'Locating\u2026';
+      locateBtn.disabled = true;
+      showLocateStatus('', false);
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        var lat = pos.coords.latitude;
+        var lon = pos.coords.longitude;
+        fetch('https://nominatim.openstreetmap.org/reverse?format=json&lat=' + lat + '&lon=' + lon + '&zoom=18&addressdetails=1')
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            locationInput.value = (data && data.display_name) ? data.display_name : (lat.toFixed(5) + ', ' + lon.toFixed(5));
+            showLocateStatus('Location set from GPS.', false);
+          })
+          .catch(function () {
+            locationInput.value = lat.toFixed(5) + ', ' + lon.toFixed(5);
+            showLocateStatus('Got GPS coordinates (address lookup failed).', false);
+          })
+          .finally(function () {
+            locateLabel.textContent = 'Use current location';
+            locateBtn.disabled = false;
+          });
+      }, function (err) {
+        locateLabel.textContent = 'Use current location';
+        locateBtn.disabled = false;
+        if (err.code === err.PERMISSION_DENIED) {
+          showLocateStatus('Location permission denied. Enter your address manually.', true);
+        } else {
+          showLocateStatus('Could not get your location. Enter your address manually.', true);
+        }
+      }, { enableHighAccuracy: true, timeout: 10000 });
+    });
+  }
+
+  // Photo upload: click-to-browse + drag and drop
+  var dropzone = document.getElementById('tema-dropzone');
+  var fileInput = document.getElementById('tema-photo-input');
+  var thumbsEl = document.getElementById('tema-photo-thumbs');
+  var dzLabel = document.getElementById('tema-dropzone-label');
+  var photoStatus = document.getElementById('tema-photo-status');
+  var photoFiles = [];
+
+  function showPhotoStatus(msg) {
+    if (!photoStatus) return;
+    photoStatus.textContent = msg;
+    photoStatus.style.display = msg ? 'block' : 'none';
+  }
+
+  function renderThumbs() {
+    thumbsEl.innerHTML = '';
+    photoFiles.forEach(function (file, i) {
+      var url = URL.createObjectURL(file);
+      var wrap = document.createElement('div');
+      wrap.style.cssText = 'position:relative;width:52px;height:52px;flex-shrink:0;';
+      var img = document.createElement('img');
+      img.src = url;
+      img.style.cssText = 'width:52px;height:52px;border-radius:8px;object-fit:cover;border:1px solid #E2E6EB;display:block;';
+      var rm = document.createElement('button');
+      rm.type = 'button';
+      rm.textContent = '\u00d7';
+      rm.setAttribute('aria-label', 'Remove photo');
+      rm.style.cssText = 'position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#0A0A0A;color:#fff;border:none;font-size:11px;line-height:1;cursor:pointer;padding:0;';
+      rm.addEventListener('click', function (e) {
+        e.stopPropagation();
+        photoFiles.splice(i, 1);
+        renderThumbs();
+      });
+      wrap.appendChild(img);
+      wrap.appendChild(rm);
+      thumbsEl.appendChild(wrap);
+    });
+    dzLabel.textContent = photoFiles.length
+      ? (photoFiles.length + ' photo' + (photoFiles.length > 1 ? 's' : '') + ' attached \u2014 click to add more')
+      : 'Drag photos here or click to upload';
+  }
+
+  function addFiles(fileList) {
+    var accepted = ['image/jpeg', 'image/png'];
+    var rejected = false;
+    Array.prototype.forEach.call(fileList, function (file) {
+      if (accepted.indexOf(file.type) === -1 || file.size > 10 * 1024 * 1024) {
+        rejected = true;
+        return;
+      }
+      photoFiles.push(file);
+    });
+    renderThumbs();
+    showPhotoStatus(rejected ? 'Some files were skipped \u2014 only JPG/PNG up to 10MB are accepted.' : '');
+  }
+
+  if (dropzone) {
+    dropzone.addEventListener('click', function () { fileInput.click(); });
+    dropzone.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      dropzone.style.borderColor = '#0A0A0A';
+      dropzone.style.background = '#FAFAFA';
+    });
+    dropzone.addEventListener('dragleave', function () {
+      dropzone.style.borderColor = '#C9C9C9';
+      dropzone.style.background = '';
+    });
+    dropzone.addEventListener('drop', function (e) {
+      e.preventDefault();
+      dropzone.style.borderColor = '#C9C9C9';
+      dropzone.style.background = '';
+      if (e.dataTransfer && e.dataTransfer.files) addFiles(e.dataTransfer.files);
+    });
+  }
+  if (fileInput) {
+    fileInput.addEventListener('change', function () {
+      addFiles(fileInput.files);
+      fileInput.value = '';
+    });
+  }
+})();
+</script>
 </body>
 </html>
